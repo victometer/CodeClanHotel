@@ -42,16 +42,16 @@ public class Hotel {
         }
     }
 
-    public boolean bedroomIsAvailable(Bedroom room) {
-        return (room.getGuestList() == 0);
-    }
+//    public boolean bedroomIsAvailable(Bedroom room) {
+//        return (room.getGuestList() == 0);
+//    }
 
     public boolean bedroomHasEnoughRoom(Bedroom room) {
-        return (room.getGuestList() <= room.getCapacity());
+        return (room.getGuestList() < room.getCapacity());
     }
 
     public void addGuestToBedroom(Guest guest, Bedroom room) {
-        if (bedroomIsAvailable(room)){
+        if (bedroomHasEnoughRoom(room)){
             room.addGuestToGuestList(guest);
         }
     }
